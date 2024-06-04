@@ -5,11 +5,11 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     _ = b.addModule("dizzy", .{
-        .root_source_file = .{ .path = "dizzy.zig" },
+        .root_source_file = b.path("dizzy.zig"),
     });
 
     const exe_unit_tests = b.addTest(.{
-        .root_source_file = .{ .path = "dizzy.zig" },
+        .root_source_file = b.path("dizzy.zig"),
         .target = target,
         .optimize = optimize,
     });
